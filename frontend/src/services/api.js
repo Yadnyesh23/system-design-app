@@ -6,7 +6,7 @@ console.log("Current System Endpoint:", BASE_URL);
 
 const API = axios.create({
   baseURL: BASE_URL,
-  timeout: 5000, 
+  timeout: 30000, 
   headers: {
     "Content-Type": "application/json",
   }
