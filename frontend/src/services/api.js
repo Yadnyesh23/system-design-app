@@ -1,9 +1,6 @@
 import axios from "axios";
 
 
-
-console.log("Current System Endpoint:", BASE_URL); 
-
 const API = axios.create({
    baseURL: "https://system-design-app.onrender.com/api"
 });
