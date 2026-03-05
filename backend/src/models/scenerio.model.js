@@ -1,78 +1,38 @@
-import mongoose from "mongoose";
+import mongoose from "mongoose"
 
-const Phase1OptionSchema = new mongoose.Schema({
-  option_id: String,   
+const optionSchema = new mongoose.Schema({
+
+  id: String,
   title: String,
   logic: String
-});
 
-const Phase2OptionSchema = new mongoose.Schema({
-  option_id: String,   
-  text: String
-});
+}, { _id:false })
 
-const Phase2BranchSchema = new mongoose.Schema({
-  linked_option: String, 
-
-  options: [Phase2OptionSchema]
-});
-
-const ScenarioSchema = new mongoose.Schema({
+const scenarioSchema = new mongoose.Schema({
 
   title: String,
-
   context: String,
-
-  core_issue: String,
-
+  coreIssue: String,
   scenario: String,
 
-  phase1: {
-
-    question: String,
-
-    options: [Phase1OptionSchema]
+  phase1:{
+    question:String,
+    options:[optionSchema]
   },
 
-  phase2: {
+  phase2: mongoose.Schema.Types.Mixed,
 
-    description: String,
-
-    branches: [Phase2BranchSchema]
-
+  phase3:{
+    title:String,
+    points:[String]
   },
 
-  phase3: {
-
-    title: String,
-
-    architecture: [String]
-
+  phase4:{
+    instruction:String
   },
 
-  phase4: {
+  phase5: mongoose.Schema.Types.Mixed
 
-    prompt: String
+})
 
-  },
-
-  phase5: {
-
-    company_lens: [
-
-      {
-        company: String,
-        expectation: String
-      }
-
-    ],
-
-    strong_signals: [String],
-
-    weak_signals: [String]
-
-  }
-
-});
-
-export default mongoose.model("Scenario", ScenarioSchema);
+export default mongoose.model("Scenario", scenarioSchema)
