@@ -1,22 +1,12 @@
-import express from "express"
-import path from "path"
-import { fileURLToPath } from "url"
+import app from './app.js'
+import dotenv from 'dotenv'
+import connectDB from './config/ConnectDB.js'
 
-import app from "./app.js"
+dotenv.config()
 
-const __filename = fileURLToPath(import.meta.url)
-const __dirname = path.dirname(__filename)
+const port = process.env.PORT || 5000
 
-const PORT = process.env.PORT || 5000
-
-// serve React build
-app.use(express.static(path.join(__dirname, "../../frontend/dist")))
-
-// React routing
-app.get("*", (req,res)=>{
-  res.sendFile(path.join(__dirname, "../../frontend/dist/index.html"))
-})
-
-app.listen(PORT, ()=>{
-  console.log(`Server running on ${PORT}`)
+connectDB()
+app.listen(port, () => {
+    console.log(`Server listening on port http://localhost:${port}`)
 })
