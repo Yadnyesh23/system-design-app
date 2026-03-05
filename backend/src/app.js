@@ -4,7 +4,7 @@ const app = express()
 
 // Middleware
 app.use(cors({
-  origin: "*", 
+  origin: "https://system-design-app-tau.vercel.app/", 
   methods: ["GET", "POST", "PUT", "DELETE"],
   credentials: true
 }));app.use(express.json())
