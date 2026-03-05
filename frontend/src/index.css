@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+/* If you are using v4, you don't need @tailwind base/components/utilities */
+/* Standard utility classes like text-slate-300 are now part of the default theme */
+
+@theme {
+  /* This is where you put your custom professional colors if needed */
+  --color-brand-obsidian: #020202;
+  --color-brand-purple: #7000FF;
+}
+
+body {
+  background-color: #020202;
+  /* Use the CSS variable or the theme-provided utility */
+  @apply text-slate-300 antialiased;
+}
