@@ -1,10 +1,10 @@
 import express from 'express'
-import Router from 'express'
+const router = express.Router()
 import {
     getAllScenerios, getScenerioContext, getScenerioById
 } from "../controllers/scenerio.controller.js"
 
-const router = Router()
+
 
 // list scenarios
 router.get("/", getAllScenerios)
