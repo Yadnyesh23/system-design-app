@@ -4,13 +4,12 @@ import cors from "cors"
 const app = express()
 
 app.use(cors({
-  origin: [
-    "http://localhost:5173",
-    "https://system-design-app-tau.vercel.app"
-  ],
-  methods: ["GET", "POST", "PUT", "DELETE"],
+  origin: ["https://system-design-app-tau.vercel.app"],
+  methods: ["GET","POST","PUT","DELETE","OPTIONS"],
   credentials: true
 }))
+
+app.options('*', cors())
 
 app.use(express.json())
 
