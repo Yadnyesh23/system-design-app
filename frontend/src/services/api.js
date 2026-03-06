@@ -2,7 +2,7 @@ import axios from "axios";
 
 
 const API = axios.create({
-   baseURL: "https://system-design-app.onrender.com/api"
+  baseURL: import.meta.env.VITE_API_URL
 });
 
 
